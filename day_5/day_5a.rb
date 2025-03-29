@@ -6,7 +6,7 @@ rules, updates = input.split(/\n\n/)
 
 rule_hash = {}
 
-rules = rules.split(/\n/).each do |rule| 
+rules.split(/\n/).each do |rule| 
   before, after = rule.split("|").map(&:to_i)
   (rule_hash[before] ||= []) << after
 end 
@@ -25,7 +25,6 @@ def good_update? update_arr, rule_hash
 end
 
 good_updates = updates.filter{ |update| good_update?(update, rule_hash) }
-
 
 middle_elements = good_updates.map{ |update| update[update.length / 2] }
 
